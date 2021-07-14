@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
                                         PermissionsMixin
-#PermissionsMixin- Add the fields and methods necessary to support the Group and Permission models using the ModelBackend.
+# PermissionsMixin- Add the fields and methods necessary to
+# support the Group and Permission models using the ModelBackend.
+
 
 class UserManager(BaseUserManager):
 
@@ -11,7 +13,7 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have email address')
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
-        user.save(using = self.db)
+        user.save(using=self.db)
 
         return user
 
